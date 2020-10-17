@@ -1,13 +1,28 @@
-all: avg_temp
+# define the C compiler to use
+CC       = gcc
+# define comipler flags
+CFLAGS   = -std=c11 -Wall -fmax-errors=10 -Wextra
+# define library paths in addition to /usr/lib
+LFLAGS   = 
+# define libraries to use
+LIBS     = 
+# define the object files that this project needs
+OBJFILES = avg_temp.o weather.o
+# define the name of the executable file
+MAIN     = avg_temp
 
-avg_temp: weather.o avg_temp.o
-	gcc -std=c11 -Wall -fmax-errors=10 -Wextra -o avg_temp weather.o avg_temp.o
+# all of the below is generic - one typically only adjusts the above
 
-weather.o: weather.c
-	gcc -std=c11 -Wall -fmax-errors=10 -Wextra -c -o weather.o weather.c
+all: $(MAIN)
 
-avg_temp.o: avg_temp.c weather.h
-	gcc -std=c11 -Wall -fmax-errors=10 -Wextra -c -o avg_temp.o avg_temp.c
+$(MAIN): $(OBJFILES)
+	$(CC) $(CFLAGS) -o $(MAIN) $(OBJFILES) 
+    
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
 
-clean: 
-	rm avg_temp *.o
+clean:
+	rm -f $(OBJFILES) $(MAIN)
+
+run: $(MAIN)
+	./$(MAIN)
