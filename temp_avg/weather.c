@@ -1,7 +1,5 @@
 #include <stdio.h>
 
-// and header file weather.h:
-double averageTemp(double *temps, int numOfTemps);
 
 // source file weather.c:
 double averageTemp(double *temps, int numOfTemps) {
@@ -13,3 +11,16 @@ double averageTemp(double *temps, int numOfTemps) {
 	result = result / (double) numOfTemps;
 	return result;
 }
+
+
+double maxTemp(double *temps, int numOfTemps) {
+	double result = 0.0;
+	int i;
+	for (i=0; i<numOfTemps; i++) {
+		if (result < temps[i]){	
+	        result = temps[i];
+	    }
+	}
+	return result;
+}
+
