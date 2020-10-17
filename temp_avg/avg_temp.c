@@ -6,7 +6,8 @@ int main(void) {
 	double average = averageTemp(temperatures, 7);
 	double max = maxTemp(temperatures, 7);
 	printf("Average 7-day temp: %.2lf\n", average);
-	printf("Max temp: %0.2lf\n", max);
+	printf("Max temperature: %0.2lf\n", max);
+	printf("Min temperature: %0.2lf\n", minTemp(temperatures, 7));
 		
 	return 0;
 }

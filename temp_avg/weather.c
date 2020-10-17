@@ -14,13 +14,23 @@ double averageTemp(double *temps, int numOfTemps) {
 
 
 double maxTemp(double *temps, int numOfTemps) {
-	double result = 0.0;
+	double max = temps[0];
 	int i;
-	for (i=0; i<numOfTemps; i++) {
-		if (result < temps[i]){	
-	        result = temps[i];
+	for (i=1; i<numOfTemps; i++) {
+		if (max < temps[i]){	
+	        max = temps[i];
 	    }
 	}
-	return result;
+	return max;
 }
 
+double minTemp(double *temps, int numOfTemps) {
+	double min = temps[0];
+	int i;
+	for (i=1; i<numOfTemps; i++) {
+		if (min > temps[i]){	
+	        min = temps[i];
+	    }
+	}
+	return min;
+}
