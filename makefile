@@ -1,6 +1,6 @@
-all: use_math.o
+all: use_math
 
-use_math.o:
+use_math: use_math.c
 	gcc -Wall use_math.c -lm -o use_math.o
 
 clean: 
