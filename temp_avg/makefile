@@ -7,7 +7,7 @@ LFLAGS   =
 # define libraries to use
 LIBS     = 
 # define the object files that this project needs
-OBJFILES = avg_temp.o weather.o
+OBJFILES = avg_temp.o weatherstats.o weatherio.o
 # define the name of the executable file
 MAIN     = avg_temp
 
