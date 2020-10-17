@@ -3,11 +3,11 @@ CC       = gcc
 # define comipler flags
 CFLAGS   = -std=c11 -Wall -fmax-errors=10 -Wextra
 # define library paths in addition to /usr/lib
-LFLAGS   = 
+LFLAGS   = -L.
 # define libraries to use
-LIBS     = 
+LIBS     = -lweather
 # define the object files that this project needs
-OBJFILES = avg_temp.o weatherstats.o weatherio.o
+OBJFILES = avg_temp.o
 # define the name of the executable file
 MAIN     = avg_temp
 
@@ -16,7 +16,7 @@ MAIN     = avg_temp
 all: $(MAIN)
 
 $(MAIN): $(OBJFILES)
-	$(CC) $(CFLAGS) -o $(MAIN) $(OBJFILES) 
+	$(CC) $(CFLAGS) -o $(MAIN) $(OBJFILES) $(LFLAGS) $(LIBS) 
     
 %.o: %.c
 	$(CC) $(CFLAGS) -c -o $@ $<
